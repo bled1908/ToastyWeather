@@ -1,0 +1,12 @@
+# Local secrets (developer-specific)
+secrets.js
+
+# Node
+node_modules/
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -55,6 +55,15 @@ function showToast(msg, type = "info") {
 }
 
 
+// Configuration: read runtime API endpoints (or keys) from a local config file.
+// If not present, the app falls back to the public Open-Meteo endpoints.
+const {
+    GEOCODING_BASE = 'https://geocoding-api.open-meteo.com/v1/search',
+    WEATHER_BASE = 'https://api.open-meteo.com/v1/forecast',
+    WEATHER_API_KEY
+} = window.TOASTY_WEATHER_CONFIG || {};
+
+
 
 // STEP 6: Create an async function getLocation(city)
 // Use Open-Meteo Geocoding API to get latitude & longitude
@@ -64,11 +73,11 @@ function showToast(msg, type = "info") {
 // Data returned includes:
 //   result.name, result.country, result.latitude, result.longitude
 async function getLocation(city) {
-    const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`;
+    const url = `${GEOCODING_BASE}?name=${encodeURIComponent(city)}&count=1`;
     try {
         const response = await fetch(url);
         if(!response.ok) {
-            throw new error(`HTTP error! status: ${response.status}`);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
         return data.results && data.results.length > 0 ? data.results[0] : null;
@@ -86,7 +95,7 @@ async function getLocation(city) {
 //   https://api.open-meteo.com/v1/forecast?latitude=LAT&longitude=LON&current_weather=true
 // Return: Current temperature + wind speed from JSON response
 async function getWeather(lat, lon) {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+    const url = `${WEATHER_BASE}?latitude=${lat}&longitude=${lon}&current_weather=true`;
     try {
         const response = await fetch(url);
         if(!response.ok) {
