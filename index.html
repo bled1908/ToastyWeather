@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Finder</title>
+</head>
+<body>
+
+    <h1 class="title">🌦️ Weather Finder</h1>
+
+    <!-- STEP 1: Create the city input section -->
+    <div class="search-box">
+        <!-- Inside this div -->
+        <!-- • An input box with id="city-input" and placeholder "Enter city name..." -->
+        <!-- • A button with id="search-btn" and text "Search" -->
+        <input id="city-input" placeholder="Enter city name..." />
+        <button id="search-btn">Search</button>
+
+
+    </div>
+
+
+    <!-- STEP 2: Create the weather result box -->
+    <div id="weather-result" class="weather-card hidden">
+        <!-- Inside this div, add: -->
+        <!-- • An h2 with id="city-name" -->
+        <!-- • A paragraph with id="temp" -->
+        <!-- • A paragraph with id="windspeed" -->
+        <h2 id="city-name"></h2>
+        <p id="temp"></p>
+        <p id="windspeed"></p>
+
+
+    </div>
+
+
+    <!-- STEP 3: Create the toast container -->
+    <!-- Add a div with id="toast-container" -->
+    <!-- Toast messages will appear inside this container dynamically -->
+    <div id="toast-container">
+        
+    </div>
+
+
+</body>
+</html>
