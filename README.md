@@ -5,11 +5,17 @@
 - **Purpose:** Built as a Weekend Dev Challenge project for CodeChef, intended to be a polished, shareable portfolio piece.
 
 **Demo**
+
 - **Initial UI:**
+
   ![Initial state](Public/initial-state.png)
+
 - **Successful city load:**
+
   ![Successful city load](Public/Successful-city-load.png)
+
 - **Incorrect city / error toast:**
+
   ![Incorrect city name](Public/incorrect-city-name.png)
 
 **Features**
