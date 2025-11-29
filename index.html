@@ -4,44 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Finder</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1 class="title">🌦️ Weather Finder</h1>
+  <!-- Load Page Structure -->
+  <script src="weatherPage.js"></script>
 
-    <!-- STEP 1: Create the city input section -->
-    <div class="search-box">
-        <!-- Inside this div -->
-        <!-- • An input box with id="city-input" and placeholder "Enter city name..." -->
-        <!-- • A button with id="search-btn" and text "Search" -->
-        <input id="city-input" placeholder="Enter city name..." />
-        <button id="search-btn">Search</button>
+  <script>
+    function createElement(node) {
+      const el = document.createElement(node.tag);
 
+      if (node.attrs) {
+        for (let key in node.attrs) {
+          el.setAttribute(key, node.attrs[key]);
+        }
+      }
 
-    </div>
+      if (node.children) {
+        node.children.forEach(child => {
+          if (typeof child === "string") {
+            el.appendChild(document.createTextNode(child));
+          } else {
+            el.appendChild(createElement(child));
+          }
+        });
+      }
 
+      return el;
+    }
 
-    <!-- STEP 2: Create the weather result box -->
-    <div id="weather-result" class="weather-card hidden">
-        <!-- Inside this div, add: -->
-        <!-- • An h2 with id="city-name" -->
-        <!-- • A paragraph with id="temp" -->
-        <!-- • A paragraph with id="windspeed" -->
-        <h2 id="city-name"></h2>
-        <p id="temp"></p>
-        <p id="windspeed"></p>
+    // Inject UI to page
+    document.body.appendChild(createElement(weatherPage));
+  </script>
 
-
-    </div>
-
-
-    <!-- STEP 3: Create the toast container -->
-    <!-- Add a div with id="toast-container" -->
-    <!-- Toast messages will appear inside this container dynamically -->
-    <div id="toast-container">
-        
-    </div>
-
+  <!-- Script File -->
+  <script src="script.js"></script>
 
 </body>
 </html>
+
+
