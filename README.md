@@ -8,9 +8,9 @@
 - **Initial UI:**
   ![Initial state](Public/initial-state.png)
 - **Successful city load:**
-  ![Successful city load](Public/Successful city load.png)
+  ![Successful city load](Public/Successful-city-load.png)
 - **Incorrect city / error toast:**
-  ![Incorrect city name](Public/incorrect city name.png)
+  ![Incorrect city name](Public/incorrect-city-name.png)
 
 **Features**
 - **Search by city name** — Geocodes the city and displays the nearest match.
